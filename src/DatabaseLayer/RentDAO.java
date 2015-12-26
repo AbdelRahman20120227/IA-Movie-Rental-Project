@@ -46,7 +46,7 @@ public class RentDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement("select* from rent where userid = ?") ; 
 			ResultSet resultSet = preparedStatement.executeQuery() ; 
 			 while(resultSet.next()){
-				 rents.add(new Rent(userId, MoiveDao.getMovie(resultSet.getInt("movieid")), resultSet.getDate("startdate"), resultSet.getDate("enddate")));
+				 rents.add(new Rent(userId, MovieDAO.getMovie(resultSet.getInt("movieid")), resultSet.getDate("startdate"), resultSet.getDate("enddate")));
 			 }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

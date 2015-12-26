@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import Beans.Movie;
 
-public class MoiveDao {
+public class MovieDAO {
 	public static void insertMoive(Movie movie) {
 		try {
 			Connection connection = DataSource.getInstance().getConnection();

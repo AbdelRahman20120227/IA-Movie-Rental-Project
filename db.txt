@@ -34,7 +34,7 @@ CREATE TABLE `movie` (
   `movietype` varchar(255) DEFAULT NULL,
   `moviedescription` varchar(255) DEFAULT NULL,
   `quality` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL, 
   `price` float DEFAULT NULL,
   `moviecast` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`movieid`)

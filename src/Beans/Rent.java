@@ -5,9 +5,20 @@ import java.sql.Date;
 public class Rent {
 	private String userId ;
 	private Movie movie;
-	private Date endDate;
 	private Date startDate ;
+	private Date endDate;
 	
+	
+	
+	
+	
+	public Rent(String userId, Movie movie, Date startDate, Date endDate) {
+		super();
+		this.userId = userId;
+		this.movie = movie;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
 	public Movie getMovie() {
 		return movie;
 	}

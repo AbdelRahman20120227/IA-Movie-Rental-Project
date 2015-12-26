@@ -3,6 +3,7 @@ package DatabaseLayer;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -38,7 +39,19 @@ public class RentDAO {
 	} 
 		
 	}
-	public static ArrayList<Rent> getUserRents(String ID){
-		return null;
+	public static ArrayList<Rent> getUserRents(String userId){
+		ArrayList<Rent> rents  = new ArrayList<Rent>() ; 
+		 try {
+			Connection connection = DataSource.getInstance().getConnection() ;
+			PreparedStatement preparedStatement = connection.prepareStatement("select* from rent where userid = ?") ; 
+			ResultSet resultSet = preparedStatement.executeQuery() ; 
+			 while(resultSet.next()){
+				 rents.add(new Rent(userId, MoiveDao.getMovie(resultSet.getInt("movieid")), resultSet.getDate("startdate"), resultSet.getDate("enddate")));
+			 }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return rents;
 	}
 }

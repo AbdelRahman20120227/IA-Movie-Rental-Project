@@ -3,27 +3,14 @@ package Beans;
 import java.sql.Date;
 
 public class Rent {
-	private User user;
+	private String userId ;
 	private Movie movie;
 	private Date endDate;
 	private Date startDate ;
 	
 	
-	public Rent(User user, Movie movie, Date endDate, Date startDate) {
-		super();
-		this.user = user;
-		this.movie = movie;
-		this.endDate = endDate;
-		this.startDate = startDate;
-	}
 	
 	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
 	public Movie getMovie() {
 		return movie;
 	}
@@ -41,6 +28,12 @@ public class Rent {
 	}
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	} 
 	 
 }

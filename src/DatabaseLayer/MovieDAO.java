@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import Beans.Movie;
 
@@ -77,5 +78,30 @@ public class MovieDAO {
 		}
 		return null;
 	}
-
+	public static ArrayList<Movie> getMoive(String searchType , String value){
+		ArrayList<Movie> movies  = new ArrayList<Movie>() ;  
+		try {
+			Connection connection = DataSource.getInstance().getConnection() ;
+			PreparedStatement preparedStatement = connection.prepareStatement("select* from movie where ? like ? ") ;
+			preparedStatement.setString(1, searchType);
+			preparedStatement.setString(2,'%'+value+'%');
+			ResultSet resultSet = preparedStatement.executeQuery() ; 
+			while(resultSet.next()){
+				movies.add(new Movie(resultSet.getInt("movieid"),
+						resultSet.getString("movieName"),
+						resultSet.getString("movieYear"),
+						resultSet.getFloat("movieReating"),
+						resultSet.getString("movieType"),
+						resultSet.getString("movieDesciption"),
+						resultSet.getInt("quality"),
+						resultSet.getInt("quantity"),
+						resultSet.getFloat("price"),
+						resultSet.getString("movieCast"))) ;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return movies ;
+	}
 }

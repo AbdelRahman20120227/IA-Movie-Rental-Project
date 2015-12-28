@@ -2,8 +2,11 @@ package Beans;
 
 import java.util.ArrayList;
 
-public class User extends Person{
-	
+public class User extends Person{	
+	private String ID;
+	private String name;
+	private String password;
+	private String phoneNumber;
 	private ShoppingCart cart;
 	private ArrayList<Rent> rents;
 	
@@ -11,16 +14,24 @@ public class User extends Person{
 		super(name, ID, age, password, phoneNumber, email, address);
 		this.rents = new ArrayList<Rent>();
 	}
-	public void setShoppingCart(ShoppingCart cart){
+	
+	public ShoppingCart getCart() {
+		return cart;
+	}
+
+	public void setShoppingCart(ShoppingCart cart) {
 		this.cart = cart;
 	}
-	public void addRent(Rent rent){
-		this.rents.add(rent);
+
+	public ArrayList<Rent> getRents() {
+		return rents;
 	}
 	public ShoppingCart getShoppingCart(){
 		return this.cart;
 	}
-	public ArrayList<Rent> getRents(){
-		return this.rents;
+	
+	public void setRents(ArrayList<Rent> rents) {
+		this.rents = rents;
 	}
+
 }

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 import Beans.Admin;
 import Beans.Person;
+import Beans.Rent;
+import Beans.ShoppingCart;
 import Beans.User;
 
 public class PersonDAO {
@@ -47,7 +49,7 @@ public class PersonDAO {
 			int type  = result.getInt(8);
 			if(type==1){
 				User user = new User(name, ID, age, password, phone, email,address);
-				ShoppingCart cart = ShoppingCartDAO.getuserCart(ID);
+				ShoppingCart cart = ShoppingCartDAO.getUserCart(ID);
 				user.setShoppingCart(cart);
 				ArrayList<Rent> rents = RentDAO.getUserRents(ID);
 				return user;

@@ -3,10 +3,6 @@ package Beans;
 import java.util.ArrayList;
 
 public class User extends Person{	
-	private String ID;
-	private String name;
-	private String password;
-	private String phoneNumber;
 	private ShoppingCart cart;
 	private ArrayList<Rent> rents;
 	

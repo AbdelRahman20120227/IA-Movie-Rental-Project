@@ -9,7 +9,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 public class DataSource {
   private static DataSource dataSource ; 
   private BasicDataSource basicDataSource ; 
-  public DataSource() {
+  private DataSource() {
       basicDataSource = new BasicDataSource() ; 
       basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
       basicDataSource.setUsername("root");

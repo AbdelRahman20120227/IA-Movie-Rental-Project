@@ -3,14 +3,28 @@ package Beans;
 import java.util.ArrayList;
 
 public class ShoppingCart {
-	private ArrayList<Movie> movies;
-	private ArrayList<Integer> durations;
+	public static class Pair{
+		Movie movie;
+		int duration;
+		public Pair(Movie movie,int duration){
+			this.movie = movie;
+			this.duration = duration;
+		}
+		public Movie getMovie(){
+			return this.movie;
+		}
+		public int getDuration(){
+			return this.duration;
+		}
+	}
+	private ArrayList<Pair> movies;
 	public ShoppingCart(){
-		movies = new ArrayList<Movie>();
-		durations = new ArrayList<Integer>();
+		movies = new ArrayList<Pair>();
+	}
+	public ArrayList<Pair> getMovies(){
+		return this.movies;
 	}
 	public void addMovie(Movie movie,int duration){
-		this.movies.add(movie);
-		this.durations.add(duration);
+		this.movies.add(new Pair(movie,duration));
 	}
 }

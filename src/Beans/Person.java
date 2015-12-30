@@ -1,6 +1,6 @@
 package Beans;
 
-public class Person {
+public abstract class Person {
 	private String name;
 	private String ID;
 	private String password;
